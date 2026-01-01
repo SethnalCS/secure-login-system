@@ -17,12 +17,17 @@ Storing plaintext passwords is one of the most serious security flaws in softwar
 - bcrypt
 
 ## How It Works
-1. User password are hashed with a unique salt.
+1. User passwords are hashed with a unique salt.
 2. Only the hash is stored.
 3. During login, entered passwords are compared against the stored hash
 
+## Security Design Decisions
+- Passwords are never stored in plaintext to prevent credential exposure.
+- bcrypt is used because it is intentionally slow, reducing the effectiveness of brute-force attacks.
+- Salting ensures that identical passwords produce different hashes, protecting against rainbow table attacks.
+
 ## Ethical Considerations
-This project is for education purposes only and does not implement real world authentication infrastructure.
+This project is for educational purposes only and does not implement real-world authentication infrastructure.
 
 ## What I Learned
  - Why hashing is essential for password security
